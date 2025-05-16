@@ -154,8 +154,10 @@ export default function SideMenu({
 }: {
   regions: HttpTypes.StoreRegion[] | null
 }) {
+
   const [open, setOpen] = React.useState(false)
-const toggleState = useToggleState();
+  const close = () => setOpen(false)
+  const toggleState = useToggleState()
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen)
   }
@@ -234,7 +236,7 @@ const toggleState = useToggleState();
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>
+      <Button onClick={toggleDrawer(true)} className="bg-black">
         <MenuIcon />
       </Button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
